@@ -7,7 +7,7 @@ export const Home = () => {
   const [itemInput, setItemInput] = useState('')
   const [list, setList] = useState<TodoItem[]>([
     { label: 'Fazer bolo', checked: false },
-    { label: 'Fazer um filho', checked: false },
+    { label: 'Fazer uma receita', checked: false },
   ])
 
   const handleAddButton = () => {
