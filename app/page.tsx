@@ -1,7 +1,7 @@
 "use client";
 
 import { TodoItem } from "@/types/TodoItem";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Home = () => {
   const [itemInput, setItemInput] = useState('')
@@ -12,10 +12,7 @@ export const Home = () => {
 
   const handleAddButton = () => {
     if (itemInput.trim() === '') return;
-    setList(
-      [...list,
-      { label: itemInput, checked: false }
-      ]
+    setList([...list,{ label: itemInput, checked: false }]
     );
     setItemInput('');
   }
