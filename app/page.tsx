@@ -12,8 +12,12 @@ export const Home = () => {
 
   const handleAddButton = () => {
     if(itemInput.trim() === '') return;
-    setList([...list,{ label: itemInput, checked: false }])
-    setItemInput('')
+    setList(
+      [...list,
+        { label: itemInput, checked: false }
+      ]
+    );
+    setItemInput('');
   }
 
   const handleDelete = (index: number) => {
@@ -27,10 +31,10 @@ export const Home = () => {
       <div>
         <label className="border-2 border-none bg-slate-600 rounded-lg p-6">
           <input type="text" 
-          className="p-4 py-2 rounded-sm" 
-          placeholder="O que deseja fazer?" 
-          value={itemInput}
-          onChange={e => setItemInput(e.target.value)}
+            className="p-4 py-2 rounded-sm" 
+            placeholder="O que deseja fazer?" 
+            value={itemInput}
+            onChange={e => setItemInput(e.target.value)}
           />
           <button 
           className="text-white m-2 p-2" onClick={handleAddButton}>Adicionar
@@ -42,8 +46,8 @@ export const Home = () => {
 
       <div>
         <ul className="w-full max-w-lg list-disc pl-5">{
-          list.map((label, index) => (
-            <li key={index}>{itemInput} - <button className="hover:underline" onClick={handleDelete}>Deletar Tarefa</button></li>
+          list.map((item, index) => (
+            <li key={index}>{item.label} - <button className="hover:underline" onClick={() => handleDelete(index)}>Deletar Tarefa</button></li>
           ))
         }
         </ul>
